@@ -70,3 +70,14 @@ unemp_top_increases_no_covid <- unemp_no_covid |>
 unemp_top_decreases_no_covid <- unemp_no_covid |>
   slice_min(unemployment_rate_change, n = 5)
 
+# 5.1 Produce a Line Plot    
+ggplot(unemp, aes(x = date, y = unemployment_rate, color = "red")) +
+  geom_line() +        # or geom_col(), geom_point(), etc.
+  labs(title = "Monthly Unemployment Rate 1976 - present", x = "Date", y = "Unemployment Rate (%)")
+theme_minimal()
+
+# 5.2 Produce Individual Line Plots 
+ggplot(unemp, aes(x = date, y = unemployment_rate, color = "red")) +
+  geom_line() +        # or geom_col(), geom_point(), etc.
+  facet_wrap(~ region)
+labs(title = "Monthly Unemployment Rate 1976 - present per Region", x = "Date", y = "Unemployment Rate (%)")
