@@ -98,3 +98,4 @@ unemp |>
   geom_line() +        # or geom_col(), geom_point(), etc.
   labs(title = "Monthly US Unemployment Rate Change 1976 - present", x = "Date", y = "Unemployment Rate Change (%)")
 # I chose to track the unemployment rate change of the general US from 1976 to the present, because I was interested in maybe the effect from 2020 Covid years, and I was correct in that the unemployment rate change changed drastically.
+
