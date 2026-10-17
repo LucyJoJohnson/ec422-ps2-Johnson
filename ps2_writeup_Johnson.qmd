@@ -1,0 +1,37 @@
+---
+title: "Problem Set 2"
+author: Lucy Johnson
+format: pdf
+editor: visual
+date: 10/16/2026
+format:
+  html:
+    toc: true
+    embed-resources: true
+---
+
+<https://github.com/LucyJoJohnson/ec422-ps2-Johnson>
+
+This data is monthly unemployment rate data for the United States and four individual states, from FRED (Federal Reserve Economic Data database). This data is from 1976 - present.
+
+3.2: Change your code to load the saved data in the future + 3.1: Load and save your data
+
+library(tidyquant)
+
+library(tidyverse)
+
+unemp_raw \<- tq_get(
+
+c("UNRATE", "ORUR", "CAUR", "TXUR", "NYUR"),
+
+get = "economic.data",
+
+from = "1976-01-01" )
+
+head(unemp_raw)
+
+dir.create("data", showWarnings = FALSE)
+
+saveRDS(unemp_raw, "data/unemp_raw.rds")
+
+unemp_raw = read_rds("data/unemp_raw.rds")
