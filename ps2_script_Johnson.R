@@ -53,4 +53,11 @@ unemp_summary <- unemp |>
     min_rate  = min(unemployment_rate,  na.rm = TRUE),
     max_rate  = max(unemployment_rate,  na.rm = TRUE)
   )
+# 4.3 Find the extremes
+
+unemp_top_increases <- unemp |>
+  slice_max(unemployment_rate_change, n = 5)
+
+unemp_top_decreases <- unemp |>
+  slice_min(unemployment_rate_change, n = 5)
 
