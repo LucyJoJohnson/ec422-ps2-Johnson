@@ -81,3 +81,20 @@ ggplot(unemp, aes(x = date, y = unemployment_rate, color = "red")) +
   geom_line() +        # or geom_col(), geom_point(), etc.
   facet_wrap(~ region)
 labs(title = "Monthly Unemployment Rate 1976 - present per Region", x = "Date", y = "Unemployment Rate (%)")
+
+# 5.3 Create a Bar Chart     
+unemp_summary |>
+  ggplot(aes(x = fct_reorder(region, mean_rate), y = mean_rate)) +
+  geom_col(fill = "red") +
+  labs(
+    title = "Mean Unemployment Rate per Region",
+    x = "Region",
+    y = "Mean Unemployment Rate (%)"
+  )
+# 5.4 Your Choice
+unemp |>
+  filter(region == "United States") |>
+  ggplot(aes(x = date, y = unemployment_rate_change, color = "red")) +
+  geom_line() +        # or geom_col(), geom_point(), etc.
+  labs(title = "Monthly US Unemployment Rate Change 1976 - present", x = "Date", y = "Unemployment Rate Change (%)")
+# I chose to track the unemployment rate change of the general US from 1976 to the present, because I was interested in maybe the effect from 2020 Covid years, and I was correct in that the unemployment rate change changed drastically.
